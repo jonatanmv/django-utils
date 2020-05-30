@@ -13,5 +13,5 @@ django.setup()
 
 # Logging
 import logging
-log = logging.getLogger('quotes') # Defined in settings
+log = logging.getLogger('logger_name') # Defined in settings
 ```
