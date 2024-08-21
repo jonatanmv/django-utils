@@ -1,14 +1,10 @@
 
-# Python
-
 ## Installing Django in a virtual enviroment
 ```python
 python3 -m venv venv_project
 source venv_project/bin/activate
 pip install django
 ```
-
-# Django
 
 ## Check view name from template
 *request.resolver_match.url_name*
