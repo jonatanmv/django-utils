@@ -20,5 +20,33 @@ django.setup()
 
 # Logging
 import logging
+import logging.handlers
 log = logging.getLogger('logger_name') # Defined in settings
+# Logfile name
+TIMESTAMP = datetime.datetime.today().strftime('%Y%m%d')
+LOG_TO_FILE = True
+FILANEME_WITHOUT_EXTENSION = Path(__file__).with_suffix('').stem
+LOG_FILENAME = os.path.join("logfiles",TIMESTAMP+"_"+FILANEME_WITHOUT_EXTENSION+".log")
+print(LOG_FILENAME)
+
+# Logging configuration
+LOG_FORMAT = '{asctime} [{levelname:5s}] [{name}] {filename:s}:{lineno:d} {message:s}'
+LOG_DATE_FORMAT = '%Y-%m-%d %H:%m'
+
+if LOG_TO_FILE:
+	logging.basicConfig(
+		filename=LOG_FILENAME,
+		format=LOG_FORMAT,
+		style="{",
+		datefmt=LOG_DATE_FORMAT,
+		level=logging.DEBUG
+	)
+else:
+	logging.basicConfig(
+		format=LOG_FORMAT,
+		style="{",
+		datefmt=LOG_DATE_FORMAT,
+		level=logging.DEBUG
+	)
+
 ```
